@@ -49,11 +49,11 @@ export async function tambahSiswa(val) {
     }
  }
  
- export async function hapussiswa(docld){
+ export async function hapusSiswa(docld){
    await deleteDoc(doc(db,"siswa",docld)); 
  }
  
- export async function ubahsiswa(docld,val) {
+ export async function ubahSiswa(docld,val) {
    await updateDoc(doc(db,"siswa",docld),{nama: val});
  }
  export async function ambilSiswa(docld){
