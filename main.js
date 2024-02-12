@@ -4,10 +4,12 @@ import {
   collection,
   addDoc,
   getDocs,
+  getDocs,
   deleteDoc,
   doc,
   query,
   orderBy
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
 
 
@@ -49,4 +51,14 @@ export async function tambahSiswa(val) {
  
  export async function hapussiswa(docld){
    await deleteDoc(doc(db,"siswa",docld));
+ }
+ 
+ export async function ubahsiswa(docld,val) {
+   await updateDoc(doc(db,"siswa",docld),{nama: val});
+ }
+ export async function ambilSiswa(docld){
+   const docRef = await doc(db,"siswa",docld);
+   const docsnap = await getDocs(docRef);
+   
+   return await docsnap.data();
  }
